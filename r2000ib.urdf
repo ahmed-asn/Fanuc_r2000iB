@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<robot name="r200ib" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <!--base_link:-->
+    <link name="base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+	    <geometry>
+	      <mesh filename="Meshes/base_link.stl" /> <!--link der CAD Datei des Baselinks(VISUAL)-->
+	    </geometry>
+
+      </visual>
+      <!--collision Tag einführen:-->
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+	    <geometry>
+	      <mesh filename="Meshes/base_link.stl" /> <!--link der CAD Datei des Baselinks(COLLISION)-->
+	    </geometry>
+      </collision>
+    </link>
+
+    <!--link_1:-->
+    <link name="link_1">
+      <visual>
+	    <origin xyz="0 0 0" rpy="0 0 0" />
+   	    <geometry>
+	      <mesh filename="Meshes/link_1.stl" />
+	    </geometry>
+
+	  </visual>
+
+	  <collision>
+	    <origin xyz="0 0 0" />
+	    <geometry>
+	      <mesh filename="Meshes/link_1.stl" />
+	    </geometry>
+	  </collision>
+    </link>
+
+
+    <!--link_2:-->
+    <link name="link_2">
+      <visual>
+	    <origin xyz="0 0 0" rpy="0 0 0" />
+	    <geometry>
+	      <mesh filename="Meshes/link_2.stl" />
+	    </geometry>
+
+	  </visual>
+
+	  <collision>
+	    <origin xyz="0 0 0" />
+	    <geometry>
+	      <mesh filename="Meshes/link_2.stl" />
+	    </geometry>
+	  </collision>
+    </link>
+
+
+    <!--link_3:-->
+    <link name="link_3">
+      <visual>
+	    <origin xyz="0 0 0" rpy="0 0 0" />
+  	    <geometry>
+	      <mesh filename="Meshes/link_3.stl" />
+	    </geometry>
+
+	  </visual>
+
+	  <collision>
+	    <origin xyz="0 0 0" />
+	    <geometry>
+	      <mesh filename="Meshes/link_3.stl" />
+	    </geometry>
+	  </collision>
+    </link>
+
+
+    <!--link_4:-->
+    <link name="link_4">
+      <visual>
+	    <origin xyz="0 0 0" rpy="0 0 0" />
+	    <geometry>
+	      <mesh filename="Meshes/link_4.stl" />
+	    </geometry>
+
+	  </visual>
+	  <collision>
+	    <origin xyz="0 0 0" />
+	    <geometry>
+	      <mesh filename="Meshes/link_4.stl" />
+	    </geometry>
+	  </collision>
+    </link>
+
+
+    <!--link_5:-->
+    <link name="link_5">
+      <visual>
+	    <origin xyz="0 0 0" rpy="0 0 0" />
+	    <geometry>
+	      <mesh filename="Meshes/link_5.stl" />
+	    </geometry>
+
+	  </visual>
+	  <collision>
+	    <origin xyz="0 0 0" />
+	    <geometry>
+	     <mesh filename="Meshes/link_5.stl" />
+	    </geometry>
+	  </collision>
+    </link>
+
+
+
+    <!--link_6:-->
+    <link name="link_6">
+      <visual>
+	    <origin xyz="0 0 0" rpy="0 0 0" />
+	    <geometry>
+	      <mesh filename="Meshes/link_6.stl" />
+	    </geometry>
+
+	  </visual>
+	  <collision>
+	    <origin xyz="0 0 0" />
+	    <geometry>
+	      <mesh filename="Meshes/link_6.stl" />
+	    </geometry>
+	  </collision>
+    </link>
+
+
+
+    <!--Jonit-1-->
+    <joint name="joint_1" type="revolute">
+      <origin xyz="0 0 0.670" rpy="0 0 0" />
+      <parent link="base_link"/>
+      <child link="link_1" />
+      <axis xyz="0 0 1" />
+	  <limit lower="-3.1416" upper="3.1416" effort="0" velocity="19199" />
+    </joint>
+
+
+    <!--Joint_2-->
+    <joint name="joint_2" type="revolute">
+      <origin xyz="0.312 0 0" rpy="0 0 0" />
+	  <parent link="link_1" />
+	  <child link="link_2" />
+	  <axis xyz="0 1 0" />
+	  <limit lower="-1.0472" upper="1.3265" effort="0" velocity="1.9199" />
+    </joint>
+
+
+    <!--Joint_3-->
+    <joint name="joint_3" type="revolute">
+      <origin xyz="0 0 1.075" rpy="0 0 0" />
+      <parent link="link_2" />
+	  <child link="link_3" />
+	  <axis xyz="0 -1 0" />
+	  <limit lower="-2.3038" upper="4.0143" effort="0" velocity="1.9199" />
+    </joint>
+
+    <!--Joint_4-->
+    <joint name="joint_4" type="revolute">
+      <origin xyz=" 0 0.225" rpy="0 0 0" />
+  	  <parent link="link_3" />
+	  <child link="link_4" />
+	  <axis xyz="-1 0 0" />
+	  <limit lower="-6.2832" upper="6.2832" effort="0" velocity="2.6180" />
+    </joint>
+
+
+    <!--Joint_5-->
+    <joint name="joint_5" type="revolute">
+      <origin xyz="" rpy="0 0 0" />
+	  <parent link="link_4" />
+	  <child link="link_5" />
+	  <axis xyz="0 -1 0" />
+	  <limit lower="-2.1817" upper="2.1817" effort="0" velocity="2.6180" />
+    </joint>
+
+
+
+    <!--Joint_6-->
+    <joint name="joint_6" type="revolute">
+      <origin xyz="" rpy="0 0 0" />
+	  <parent link="link_5" />
+	  <child link="link_6" />
+	  <axis xyz="-1 0 0" />
+	  <limit lower="-6.2832" upper="6.2832" effort="0" velocity="3.8397" />
+    </joint>
+
+</robot>
